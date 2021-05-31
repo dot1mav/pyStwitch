@@ -1,7 +1,7 @@
-__all__ = ['SwitchCase']
+__all__ = ['SwitchFunc','SwitchBool']
 __doc__ = '''
 
 
 '''
 
-from .Switch import SwitchCase
+from .Switch import SwitchFunc,SwitchBool
