@@ -4,4 +4,4 @@ __doc__ = '''
 
 '''
 
-from .switchCase import SwitchCase
+from .Switch import SwitchCase

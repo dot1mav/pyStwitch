@@ -1,7 +1,9 @@
+__all__ = ['SwitchFunc', 'SwitchBool']
+
 from typing import Any
 
 
-class SwitchCase:
+class SwitchFunc:
     def set_func(self, key: Any):
 
         def wrapper(func):
@@ -48,3 +50,33 @@ class SwitchCase:
 
     def __str__(self) -> str:
         return str(self.__dict__)
+
+
+class SwitchBool:
+    def __init__(self) -> None:
+        self.__list__ = list()
+
+    def set_key(self, key: Any) -> None:
+        self.__list__.append(key)
+
+    def set_keys(self, keys: list) -> None:
+        for key in keys:
+            self.__list__.append(key)
+
+    def del_key(self, key: Any) -> None:
+        if key in self.__list__:
+            self.__list__.remove(key)
+
+    def del_keys(self, keys: list):
+        for key in keys:
+            if key in self.__list__:
+                self.__list__.remove(key)
+
+    def __call__(self, key) -> bool:
+        return True if key in self.__list__ else False
+
+    def __repr__(self) -> str:
+        return f'keys -> {self.__list__}'
+
+    def __str__(self) -> str:
+        return str(self.__list__)
