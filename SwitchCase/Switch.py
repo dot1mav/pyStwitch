@@ -1,12 +1,12 @@
 __all__ = ['SwitchFunc', 'SwitchBool']
 
-from typing import Any
+from typing import Any, Callable
 
 
 class SwitchFunc:
     def set_func(self, key: Any):
 
-        def wrapper(func):
+        def wrapper(func: Callable):
             self.__dict__.update({key: func})
 
         return wrapper
@@ -15,7 +15,7 @@ class SwitchFunc:
         for key in conditions:
             self.__dict__.update({key: conditions[key]})
 
-    def set_condition(self, key: Any, func) -> None:
+    def set_condition(self, key: Any, func: Callable) -> None:
         self.__dict__.update({key: func})
 
     def get_conditions(self) -> dict:
